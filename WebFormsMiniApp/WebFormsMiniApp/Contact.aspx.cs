@@ -1,17 +1,23 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 
 namespace WebFormsMiniApp
 {
-    public partial class Contact : Page
+    public partial class Contact : System.Web.UI.Page
     {
-        protected void Page_Load(object sender, EventArgs e)
+        protected void btnSend_Click(object sender, EventArgs e)
         {
+            List<string> contacts = Session["Contacts"] as List<string>;
+            if (contacts == null)
+            {
+                contacts = new List<string>();
+            }
 
+            string entry = txtContactName.Text + " - " + txtContactEmail.Text + " - " + txtContactMessage.Text;
+            contacts.Add(entry);
+            Session["Contacts"] = contacts;
+
+            lblContactResult.Text = "Thank you for contacting us!";
         }
     }
 }

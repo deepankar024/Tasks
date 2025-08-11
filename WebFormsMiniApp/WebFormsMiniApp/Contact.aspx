@@ -1,19 +1,11 @@
-﻿<%@ Page Title="Contact" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Contact.aspx.cs" Inherits="WebFormsMiniApp.Contact" %>
+﻿<%@ Page Title="Contact" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true" CodeBehind="Contact.aspx.cs" Inherits="WebFormsMiniApp.Contact" %>
 
-<asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
-    <main aria-labelledby="title">
-        <h2 id="title"><%: Title %>.</h2>
-        <h3>Your contact page.</h3>
-        <address>
-            One Microsoft Way<br />
-            Redmond, WA 98052-6399<br />
-            <abbr title="Phone">P:</abbr>
-            425.555.0100
-        </address>
+<asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
+    <h3>Contact Us</h3>
+    Name: <asp:TextBox ID="txtContactName" runat="server" /><br /><br />
+    Email: <asp:TextBox ID="txtContactEmail" runat="server" /><br /><br />
+    Message: <asp:TextBox ID="txtContactMessage" runat="server" TextMode="MultiLine" Rows="4" Columns="30" /><br /><br />
 
-        <address>
-            <strong>Support:</strong>   <a href="mailto:Support@example.com">Support@example.com</a><br />
-            <strong>Marketing:</strong> <a href="mailto:Marketing@example.com">Marketing@example.com</a>
-        </address>
-    </main>
+    <asp:Button ID="btnSend" runat="server" Text="Send" OnClick="btnSend_Click" /><br /><br />
+    <asp:Label ID="lblContactResult" runat="server" ForeColor="Green" />
 </asp:Content>
