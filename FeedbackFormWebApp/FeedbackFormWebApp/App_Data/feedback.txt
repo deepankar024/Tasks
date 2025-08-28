@@ -1,0 +1,7 @@
+2025-08-13 12:44:13Z	Deepankar	Deepankar@bhavnacorp.com	Suggestion	Improve UI
+2025-08-13 13:23:35Z	Ronaldo	ronaldo@gmail.com	Bug	fix it
+2025-08-13 13:58:06Z	Ronaldo	ronaldo@gmail.com	Suggestion	improve ui
+2025-08-13 14:09:51Z	Anshu	anshu@gmail.com	Complaint	bad service
+2025-08-13 16:47:59Z	Messi	messi@gmail.com	Bug	while clicking text are not in proper format and a delay is there while opening the tab
+2025-08-14 09:16:52Z	Ronaldo	ronaldo@gmail.com	Suggestion	improve ui
+2025-08-18 10:59:59Z	Ronaldo	ronaldo@gmail.com	Bug	fix it

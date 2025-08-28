@@ -1,0 +1,225 @@
+2025-08-18 12:50:30Z	ERROR	Error loading feedback list :: System.InvalidOperationException: No connection string named 'FeedbackDb' could be found in the application config file.
+   at System.Data.Entity.Internal.LazyInternalConnection.get_ConnectionHasModel()
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeContext()
+   at System.Data.Entity.Internal.InternalContext.Initialize()
+   at System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   at System.Data.Entity.Infrastructure.DbQuery`1.System.Linq.IQueryable.get_Provider()
+   at System.Linq.Queryable.OrderByDescending[TSource,TKey](IQueryable`1 source, Expression`1 keySelector)
+   at FeedbackFormWebApp.Services.FeedbackRepository.GetAllOrdered() in D:\Programming\Webform\FeedbackFormWebApp\FeedbackFormWebApp\Services\FeedbackRepositry.cs:line 21
+   at FeedbackFormWebApp.ViewFeedback.BindGrid() in D:\Programming\Webform\FeedbackFormWebApp\FeedbackFormWebApp\ViewFeedback.aspx.cs:line 20
+2025-08-18 12:50:59Z	ERROR	Error saving feedback :: System.InvalidOperationException: No connection string named 'FeedbackDb' could be found in the application config file.
+   at System.Data.Entity.Internal.LazyInternalConnection.get_ConnectionHasModel()
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeContext()
+   at System.Data.Entity.Internal.InternalContext.Initialize()
+   at System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.ActOnSet(Action action, EntityState newState, Object entity, String methodName)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Add(Object entity)
+   at System.Data.Entity.DbSet`1.Add(TEntity entity)
+   at FeedbackFormWebApp.Services.FeedbackRepository.Add(FeedbackEntry entry) in D:\Programming\Webform\FeedbackFormWebApp\FeedbackFormWebApp\Services\FeedbackRepositry.cs:line 13
+   at FeedbackFormWebApp.Controls.FeedbackFormControl.BtnSubmit_Click(Object sender, EventArgs e) in D:\Programming\Webform\FeedbackFormWebApp\FeedbackFormWebApp\Controls\FeedbackFormControl.cs:line 319
+2025-08-18 12:51:08Z	ERROR	Error saving feedback :: System.InvalidOperationException: No connection string named 'FeedbackDb' could be found in the application config file.
+   at System.Data.Entity.Internal.LazyInternalConnection.get_ConnectionHasModel()
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeContext()
+   at System.Data.Entity.Internal.InternalContext.Initialize()
+   at System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.ActOnSet(Action action, EntityState newState, Object entity, String methodName)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Add(Object entity)
+   at System.Data.Entity.DbSet`1.Add(TEntity entity)
+   at FeedbackFormWebApp.Services.FeedbackRepository.Add(FeedbackEntry entry) in D:\Programming\Webform\FeedbackFormWebApp\FeedbackFormWebApp\Services\FeedbackRepositry.cs:line 13
+   at FeedbackFormWebApp.Controls.FeedbackFormControl.BtnSubmit_Click(Object sender, EventArgs e) in D:\Programming\Webform\FeedbackFormWebApp\FeedbackFormWebApp\Controls\FeedbackFormControl.cs:line 319
+2025-08-18 13:54:32Z	INFO	Feedback saved: messi@gmail.com / Complaint
+2025-08-18 18:36:15Z	INFO	Feedback saved: ronaldo@gmail.com / Suggestion
+2025-08-18 18:37:02Z	INFO	Feedback saved: Deepankar@bhavnacorp.com / Complaint
+2025-08-18 18:39:24Z	INFO	Feedback saved: anshu@gmail.com / Other
+2025-08-18 18:41:05Z	INFO	Feedback saved: modi@gmail.com / Suggestion
+2025-08-18 18:42:03Z	INFO	Feedback saved: virat@gmail.com / Bug
+2025-08-21 06:45:49Z	INFO	Feedback saved: abhinav@gmail.com / Complaint
+2025-08-21 09:17:25Z	INFO	Feedback saved: ronaldo@gmail.com / Bug
+2025-08-21 09:18:12Z	INFO	Feedback saved: Deepankar@bhavnacorp.com / Suggestion
+2025-08-21 09:52:21Z	INFO	Feedback saved: messi@gmail.com / Complaint
+2025-08-21 18:20:42Z	INFO	Feedback saved: neymar@gmail.com / Suggestion
+[2025-08-21 19:48:01 UTC] [ERROR] Unhandled application error :: Exception: Unable to update database to match the current model because there are pending changes and automatic migration is disabled. Either write the pending model changes to a code-based migration or enable automatic migration. Set DbMigrationsConfiguration.AutomaticMigrationsEnabled to true to enable automatic migration. :: Stack Trace:    at System.Data.Entity.Migrations.DbMigrator.Upgrade(IEnumerable`1 pendingMigrations, String targetMigrationId, String lastMigrationId)
+   at System.Data.Entity.Migrations.DbMigrator.UpdateInternal(String targetMigration)
+   at System.Data.Entity.Migrations.DbMigrator.EnsureDatabaseExists(Action mustSucceedToKeepDatabase)
+   at System.Data.Entity.Migrations.DbMigrator.Update(String targetMigration)
+   at System.Data.Entity.Internal.DatabaseCreator.CreateDatabase(InternalContext internalContext, Func`3 createMigrator, ObjectContext objectContext)
+   at System.Data.Entity.Database.Create(DatabaseExistenceState existenceState)
+   at System.Data.Entity.CreateDatabaseIfNotExists`1.InitializeDatabase(TContext context)
+   at System.Data.Entity.Internal.InternalContext.PerformInitializationAction(Action action)
+   at System.Data.Entity.Internal.InternalContext.PerformDatabaseInitialization()
+   at System.Data.Entity.Internal.RetryAction`1.PerformAction(TInput input)
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeDatabaseAction(Action`1 action)
+   at FeedbackFormWebApp.Global.Application_Start() in D:\Programming\Webform\FeedbackFormWebApp\FeedbackFormWebApp\Global.asax.cs:line 18
+[2025-08-21 19:49:22 UTC] [ERROR] Error loading feedback list :: Exception: The model backing the 'FeedbackDbContext' context has changed since the database was created. Consider using Code First Migrations to update the database (http://go.microsoft.com/fwlink/?LinkId=238269). :: Stack Trace:    at System.Data.Entity.CreateDatabaseIfNotExists`1.InitializeDatabase(TContext context)
+   at System.Data.Entity.Internal.InternalContext.PerformInitializationAction(Action action)
+   at System.Data.Entity.Internal.InternalContext.PerformDatabaseInitialization()
+   at System.Data.Entity.Internal.RetryAction`1.PerformAction(TInput input)
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeDatabaseAction(Action`1 action)
+   at System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   at System.Data.Entity.Infrastructure.DbQuery`1.System.Linq.IQueryable.get_Provider()
+   at System.Linq.Queryable.OrderByDescending[TSource,TKey](IQueryable`1 source, Expression`1 keySelector)
+   at FeedbackFormWebApp.Services.FeedbackRepository.ApplySorting(IQueryable`1 query, String sortField, String sortDirection) in D:\Programming\Webform\FeedbackFormWebApp\FeedbackFormWebApp\Services\FeedbackRepositry.cs:line 81
+   at FeedbackFormWebApp.Services.FeedbackRepository.GetPagedFeedback(Int32 pageNumber, Int32 pageSize, String sortField, String sortDirection) in D:\Programming\Webform\FeedbackFormWebApp\FeedbackFormWebApp\Services\FeedbackRepositry.cs:line 38
+   at FeedbackFormWebApp.ViewFeedback.BindGrid() in D:\Programming\Webform\FeedbackFormWebApp\FeedbackFormWebApp\ViewFeedback.aspx.cs:line 35
+[2025-08-21 19:49:53 UTC] [ERROR] Error saving feedback to database :: Exception: The model backing the 'FeedbackDbContext' context has changed since the database was created. Consider using Code First Migrations to update the database (http://go.microsoft.com/fwlink/?LinkId=238269). :: Stack Trace:    at System.Data.Entity.CreateDatabaseIfNotExists`1.InitializeDatabase(TContext context)
+   at System.Data.Entity.Internal.InternalContext.PerformInitializationAction(Action action)
+   at System.Data.Entity.Internal.InternalContext.PerformDatabaseInitialization()
+   at System.Data.Entity.Internal.RetryAction`1.PerformAction(TInput input)
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeDatabaseAction(Action`1 action)
+   at System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.ActOnSet(Action action, EntityState newState, Object entity, String methodName)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Add(Object entity)
+   at System.Data.Entity.DbSet`1.Add(TEntity entity)
+   at FeedbackFormWebApp.Services.FeedbackRepository.Add(Feedback entry) in D:\Programming\Webform\FeedbackFormWebApp\FeedbackFormWebApp\Services\FeedbackRepositry.cs:line 16
+   at FeedbackFormWebApp.Controls.FeedbackFormControl.BtnSubmit_Click(Object sender, EventArgs e) in D:\Programming\Webform\FeedbackFormWebApp\FeedbackFormWebApp\Controls\FeedbackFormControl.cs:line 441
+[2025-08-21 19:50:02 UTC] [ERROR] Error saving feedback to database :: Exception: The model backing the 'FeedbackDbContext' context has changed since the database was created. Consider using Code First Migrations to update the database (http://go.microsoft.com/fwlink/?LinkId=238269). :: Stack Trace:    at System.Data.Entity.CreateDatabaseIfNotExists`1.InitializeDatabase(TContext context)
+   at System.Data.Entity.Internal.InternalContext.PerformInitializationAction(Action action)
+   at System.Data.Entity.Internal.InternalContext.PerformDatabaseInitialization()
+   at System.Data.Entity.Internal.RetryAction`1.PerformAction(TInput input)
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeDatabaseAction(Action`1 action)
+   at System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.ActOnSet(Action action, EntityState newState, Object entity, String methodName)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Add(Object entity)
+   at System.Data.Entity.DbSet`1.Add(TEntity entity)
+   at FeedbackFormWebApp.Services.FeedbackRepository.Add(Feedback entry) in D:\Programming\Webform\FeedbackFormWebApp\FeedbackFormWebApp\Services\FeedbackRepositry.cs:line 16
+   at FeedbackFormWebApp.Controls.FeedbackFormControl.BtnSubmit_Click(Object sender, EventArgs e) in D:\Programming\Webform\FeedbackFormWebApp\FeedbackFormWebApp\Controls\FeedbackFormControl.cs:line 441
+[2025-08-21 19:50:16 UTC] [ERROR] Error saving feedback to database :: Exception: The model backing the 'FeedbackDbContext' context has changed since the database was created. Consider using Code First Migrations to update the database (http://go.microsoft.com/fwlink/?LinkId=238269). :: Stack Trace:    at System.Data.Entity.CreateDatabaseIfNotExists`1.InitializeDatabase(TContext context)
+   at System.Data.Entity.Internal.InternalContext.PerformInitializationAction(Action action)
+   at System.Data.Entity.Internal.InternalContext.PerformDatabaseInitialization()
+   at System.Data.Entity.Internal.RetryAction`1.PerformAction(TInput input)
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeDatabaseAction(Action`1 action)
+   at System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.ActOnSet(Action action, EntityState newState, Object entity, String methodName)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Add(Object entity)
+   at System.Data.Entity.DbSet`1.Add(TEntity entity)
+   at FeedbackFormWebApp.Services.FeedbackRepository.Add(Feedback entry) in D:\Programming\Webform\FeedbackFormWebApp\FeedbackFormWebApp\Services\FeedbackRepositry.cs:line 16
+   at FeedbackFormWebApp.Controls.FeedbackFormControl.BtnSubmit_Click(Object sender, EventArgs e) in D:\Programming\Webform\FeedbackFormWebApp\FeedbackFormWebApp\Controls\FeedbackFormControl.cs:line 441
+[2025-08-21 19:50:17 UTC] [ERROR] Error saving feedback to database :: Exception: The model backing the 'FeedbackDbContext' context has changed since the database was created. Consider using Code First Migrations to update the database (http://go.microsoft.com/fwlink/?LinkId=238269). :: Stack Trace:    at System.Data.Entity.CreateDatabaseIfNotExists`1.InitializeDatabase(TContext context)
+   at System.Data.Entity.Internal.InternalContext.PerformInitializationAction(Action action)
+   at System.Data.Entity.Internal.InternalContext.PerformDatabaseInitialization()
+   at System.Data.Entity.Internal.RetryAction`1.PerformAction(TInput input)
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeDatabaseAction(Action`1 action)
+   at System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.ActOnSet(Action action, EntityState newState, Object entity, String methodName)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Add(Object entity)
+   at System.Data.Entity.DbSet`1.Add(TEntity entity)
+   at FeedbackFormWebApp.Services.FeedbackRepository.Add(Feedback entry) in D:\Programming\Webform\FeedbackFormWebApp\FeedbackFormWebApp\Services\FeedbackRepositry.cs:line 16
+   at FeedbackFormWebApp.Controls.FeedbackFormControl.BtnSubmit_Click(Object sender, EventArgs e) in D:\Programming\Webform\FeedbackFormWebApp\FeedbackFormWebApp\Controls\FeedbackFormControl.cs:line 441
+[2025-08-21 19:50:19 UTC] [ERROR] Error saving feedback to database :: Exception: The model backing the 'FeedbackDbContext' context has changed since the database was created. Consider using Code First Migrations to update the database (http://go.microsoft.com/fwlink/?LinkId=238269). :: Stack Trace:    at System.Data.Entity.CreateDatabaseIfNotExists`1.InitializeDatabase(TContext context)
+   at System.Data.Entity.Internal.InternalContext.PerformInitializationAction(Action action)
+   at System.Data.Entity.Internal.InternalContext.PerformDatabaseInitialization()
+   at System.Data.Entity.Internal.RetryAction`1.PerformAction(TInput input)
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeDatabaseAction(Action`1 action)
+   at System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.ActOnSet(Action action, EntityState newState, Object entity, String methodName)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Add(Object entity)
+   at System.Data.Entity.DbSet`1.Add(TEntity entity)
+   at FeedbackFormWebApp.Services.FeedbackRepository.Add(Feedback entry) in D:\Programming\Webform\FeedbackFormWebApp\FeedbackFormWebApp\Services\FeedbackRepositry.cs:line 16
+   at FeedbackFormWebApp.Controls.FeedbackFormControl.BtnSubmit_Click(Object sender, EventArgs e) in D:\Programming\Webform\FeedbackFormWebApp\FeedbackFormWebApp\Controls\FeedbackFormControl.cs:line 441
+[2025-08-21 19:52:00 UTC] [ERROR] Error loading feedback list :: Exception: Unable to update database to match the current model because there are pending changes and automatic migration is disabled. Either write the pending model changes to a code-based migration or enable automatic migration. Set DbMigrationsConfiguration.AutomaticMigrationsEnabled to true to enable automatic migration. :: Stack Trace:    at System.Data.Entity.Migrations.DbMigrator.Upgrade(IEnumerable`1 pendingMigrations, String targetMigrationId, String lastMigrationId)
+   at System.Data.Entity.Migrations.DbMigrator.UpdateInternal(String targetMigration)
+   at System.Data.Entity.Migrations.DbMigrator.EnsureDatabaseExists(Action mustSucceedToKeepDatabase)
+   at System.Data.Entity.Migrations.DbMigrator.Update(String targetMigration)
+   at System.Data.Entity.Internal.DatabaseCreator.CreateDatabase(InternalContext internalContext, Func`3 createMigrator, ObjectContext objectContext)
+   at System.Data.Entity.Database.Create(DatabaseExistenceState existenceState)
+   at System.Data.Entity.CreateDatabaseIfNotExists`1.InitializeDatabase(TContext context)
+   at System.Data.Entity.Internal.InternalContext.PerformInitializationAction(Action action)
+   at System.Data.Entity.Internal.InternalContext.PerformDatabaseInitialization()
+   at System.Data.Entity.Internal.RetryAction`1.PerformAction(TInput input)
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeDatabaseAction(Action`1 action)
+   at System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   at System.Data.Entity.Infrastructure.DbQuery`1.System.Linq.IQueryable.get_Provider()
+   at System.Linq.Queryable.OrderByDescending[TSource,TKey](IQueryable`1 source, Expression`1 keySelector)
+   at FeedbackFormWebApp.Services.FeedbackRepository.ApplySorting(IQueryable`1 query, String sortField, String sortDirection) in D:\Programming\Webform\FeedbackFormWebApp\FeedbackFormWebApp\Services\FeedbackRepositry.cs:line 81
+   at FeedbackFormWebApp.Services.FeedbackRepository.GetPagedFeedback(Int32 pageNumber, Int32 pageSize, String sortField, String sortDirection) in D:\Programming\Webform\FeedbackFormWebApp\FeedbackFormWebApp\Services\FeedbackRepositry.cs:line 38
+   at FeedbackFormWebApp.ViewFeedback.BindGrid() in D:\Programming\Webform\FeedbackFormWebApp\FeedbackFormWebApp\ViewFeedback.aspx.cs:line 35
+[2025-08-21 19:52:20 UTC] [ERROR] Error saving feedback to database :: Exception: The model backing the 'FeedbackDbContext' context has changed since the database was created. Consider using Code First Migrations to update the database (http://go.microsoft.com/fwlink/?LinkId=238269). :: Stack Trace:    at System.Data.Entity.CreateDatabaseIfNotExists`1.InitializeDatabase(TContext context)
+   at System.Data.Entity.Internal.InternalContext.PerformInitializationAction(Action action)
+   at System.Data.Entity.Internal.InternalContext.PerformDatabaseInitialization()
+   at System.Data.Entity.Internal.RetryAction`1.PerformAction(TInput input)
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeDatabaseAction(Action`1 action)
+   at System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.ActOnSet(Action action, EntityState newState, Object entity, String methodName)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Add(Object entity)
+   at System.Data.Entity.DbSet`1.Add(TEntity entity)
+   at FeedbackFormWebApp.Services.FeedbackRepository.Add(Feedback entry) in D:\Programming\Webform\FeedbackFormWebApp\FeedbackFormWebApp\Services\FeedbackRepositry.cs:line 16
+   at FeedbackFormWebApp.Controls.FeedbackFormControl.BtnSubmit_Click(Object sender, EventArgs e) in D:\Programming\Webform\FeedbackFormWebApp\FeedbackFormWebApp\Controls\FeedbackFormControl.cs:line 441
+[2025-08-21 19:52:23 UTC] [ERROR] Error loading feedback list :: Exception: The model backing the 'FeedbackDbContext' context has changed since the database was created. Consider using Code First Migrations to update the database (http://go.microsoft.com/fwlink/?LinkId=238269). :: Stack Trace:    at System.Data.Entity.CreateDatabaseIfNotExists`1.InitializeDatabase(TContext context)
+   at System.Data.Entity.Internal.InternalContext.PerformInitializationAction(Action action)
+   at System.Data.Entity.Internal.InternalContext.PerformDatabaseInitialization()
+   at System.Data.Entity.Internal.RetryAction`1.PerformAction(TInput input)
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeDatabaseAction(Action`1 action)
+   at System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   at System.Data.Entity.Infrastructure.DbQuery`1.System.Linq.IQueryable.get_Provider()
+   at System.Linq.Queryable.OrderByDescending[TSource,TKey](IQueryable`1 source, Expression`1 keySelector)
+   at FeedbackFormWebApp.Services.FeedbackRepository.ApplySorting(IQueryable`1 query, String sortField, String sortDirection) in D:\Programming\Webform\FeedbackFormWebApp\FeedbackFormWebApp\Services\FeedbackRepositry.cs:line 81
+   at FeedbackFormWebApp.Services.FeedbackRepository.GetPagedFeedback(Int32 pageNumber, Int32 pageSize, String sortField, String sortDirection) in D:\Programming\Webform\FeedbackFormWebApp\FeedbackFormWebApp\Services\FeedbackRepositry.cs:line 38
+   at FeedbackFormWebApp.ViewFeedback.BindGrid() in D:\Programming\Webform\FeedbackFormWebApp\FeedbackFormWebApp\ViewFeedback.aspx.cs:line 35
+[2025-08-21 19:52:43 UTC] [ERROR] Error loading feedback list :: Exception: The model backing the 'FeedbackDbContext' context has changed since the database was created. Consider using Code First Migrations to update the database (http://go.microsoft.com/fwlink/?LinkId=238269). :: Stack Trace:    at System.Data.Entity.CreateDatabaseIfNotExists`1.InitializeDatabase(TContext context)
+   at System.Data.Entity.Internal.InternalContext.PerformInitializationAction(Action action)
+   at System.Data.Entity.Internal.InternalContext.PerformDatabaseInitialization()
+   at System.Data.Entity.Internal.RetryAction`1.PerformAction(TInput input)
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeDatabaseAction(Action`1 action)
+   at System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   at System.Data.Entity.Infrastructure.DbQuery`1.System.Linq.IQueryable.get_Provider()
+   at System.Linq.Queryable.OrderByDescending[TSource,TKey](IQueryable`1 source, Expression`1 keySelector)
+   at FeedbackFormWebApp.Services.FeedbackRepository.ApplySorting(IQueryable`1 query, String sortField, String sortDirection) in D:\Programming\Webform\FeedbackFormWebApp\FeedbackFormWebApp\Services\FeedbackRepositry.cs:line 81
+   at FeedbackFormWebApp.Services.FeedbackRepository.GetPagedFeedback(Int32 pageNumber, Int32 pageSize, String sortField, String sortDirection) in D:\Programming\Webform\FeedbackFormWebApp\FeedbackFormWebApp\Services\FeedbackRepositry.cs:line 38
+   at FeedbackFormWebApp.ViewFeedback.BindGrid() in D:\Programming\Webform\FeedbackFormWebApp\FeedbackFormWebApp\ViewFeedback.aspx.cs:line 35
+[2025-08-21 19:53:22 UTC] [ERROR] Error loading feedback list :: Exception: The model backing the 'FeedbackDbContext' context has changed since the database was created. Consider using Code First Migrations to update the database (http://go.microsoft.com/fwlink/?LinkId=238269). :: Stack Trace:    at System.Data.Entity.CreateDatabaseIfNotExists`1.InitializeDatabase(TContext context)
+   at System.Data.Entity.Internal.InternalContext.PerformInitializationAction(Action action)
+   at System.Data.Entity.Internal.InternalContext.PerformDatabaseInitialization()
+   at System.Data.Entity.Internal.RetryAction`1.PerformAction(TInput input)
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeDatabaseAction(Action`1 action)
+   at System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   at System.Data.Entity.Infrastructure.DbQuery`1.System.Linq.IQueryable.get_Provider()
+   at System.Linq.Queryable.OrderByDescending[TSource,TKey](IQueryable`1 source, Expression`1 keySelector)
+   at FeedbackFormWebApp.Services.FeedbackRepository.ApplySorting(IQueryable`1 query, String sortField, String sortDirection) in D:\Programming\Webform\FeedbackFormWebApp\FeedbackFormWebApp\Services\FeedbackRepositry.cs:line 81
+   at FeedbackFormWebApp.Services.FeedbackRepository.GetPagedFeedback(Int32 pageNumber, Int32 pageSize, String sortField, String sortDirection) in D:\Programming\Webform\FeedbackFormWebApp\FeedbackFormWebApp\Services\FeedbackRepositry.cs:line 38
+   at FeedbackFormWebApp.ViewFeedback.BindGrid() in D:\Programming\Webform\FeedbackFormWebApp\FeedbackFormWebApp\ViewFeedback.aspx.cs:line 35
+[2025-08-21 19:57:41 UTC] [INFO] Feedback submitted successfully - Email: ronaldo@gmail.com, Category: Suggestion
+[2025-08-21 19:57:41 UTC] [INFO] Feedback submitted - Name: Ronaldo, Email: ronaldo@gmail.com, Category: Suggestion
+[2025-08-22 06:56:30 UTC] [INFO] Feedback submitted successfully - Email: max@gmail.com, Category: Complaint
+[2025-08-22 06:56:30 UTC] [INFO] Feedback submitted - Name: Max, Email: max@gmail.com, Category: Complaint
+[2025-08-22 07:19:44 UTC] [INFO] Feedback submitted successfully - Email: ram@gmail.com, Category: Bug
+[2025-08-22 07:19:44 UTC] [INFO] Feedback submitted - Name: Ram, Email: ram@gmail.com, Category: Bug
+[2025-08-22 07:29:34 UTC] [INFO] Feedback submitted successfully - Email: aayush@gmail.com, Category: Suggestion
+[2025-08-22 07:29:34 UTC] [INFO] Feedback submitted - Name: Aayush, Email: aayush@gmail.com, Category: Suggestion
+[2025-08-22 07:38:43 UTC] [INFO] Feedback submitted successfully - Email: varun123@gmail.com, Category: Complaint
+[2025-08-22 07:38:43 UTC] [INFO] Feedback submitted - Name: Varun, Email: varun123@gmail.com, Category: Complaint
+[2025-08-22 07:48:58 UTC] [INFO] Feedback submitted successfully - Email: aryan@gmail.com, Category: Suggestion
+[2025-08-22 07:48:58 UTC] [INFO] Feedback submitted - Name: Aryan Jain, Email: aryan@gmail.com, Category: Suggestion
+[2025-08-25 06:06:57 UTC] [INFO] Feedback submitted successfully - Email: r@gmail.com, Category: Suggestion
+[2025-08-25 06:07:02 UTC] [INFO] Feedback submitted - Name: ronit, Email: r@gmail.com, Category: Suggestion
+[2025-08-25 06:33:36 UTC] [ERROR] Error loading feedback list :: Exception: Thread was being aborted. :: Stack Trace:    at FeedbackFormWebApp.Services.FeedbackRepository.GetPagedFeedback(Int32 pageNumber, Int32 pageSize, String sortField, String sortDirection)
+   at FeedbackFormWebApp.ViewFeedback.BindGrid()
+[2025-08-27 09:34:00 UTC] [INFO] Feedback submitted successfully - Email: yash@gmail.com, Category: Suggestion
+[2025-08-27 09:34:00 UTC] [INFO] Feedback submitted - Name: Yash, Email: yash@gmail.com, Category: Suggestion
