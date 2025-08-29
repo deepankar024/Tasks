@@ -223,3 +223,17 @@
    at FeedbackFormWebApp.ViewFeedback.BindGrid()
 [2025-08-27 09:34:00 UTC] [INFO] Feedback submitted successfully - Email: yash@gmail.com, Category: Suggestion
 [2025-08-27 09:34:00 UTC] [INFO] Feedback submitted - Name: Yash, Email: yash@gmail.com, Category: Suggestion
+[2025-08-29 05:29:22 UTC] [INFO] Feedback submitted successfully - Email: dhhairya@gmail.com, Category: Bug
+[2025-08-29 05:29:22 UTC] [INFO] Feedback submitted - Name: Dhhairya, Email: dhhairya@gmail.com, Category: Bug
+[2025-08-29 11:04:29 UTC] [INFO] Feedback updated successfully - ID: 1012, Email: dhhairya@gmail.com
+[2025-08-29 11:04:48 UTC] [INFO] Feedback updated successfully - ID: 1012, Email: dhhairya@gmail.com
+[2025-08-29 11:05:32 UTC] [INFO] Feedback deleted successfully - ID: 1010
+[2025-08-29 11:06:35 UTC] [INFO] Feedback submitted successfully - Email: utkarsh@gmail.com, Category: Bug
+[2025-08-29 11:06:35 UTC] [INFO] Feedback submitted - Name: Utkarsh, Email: utkarsh@gmail.com, Category: Bug
+[2025-08-29 11:07:01 UTC] [INFO] Feedback updated successfully - ID: 1013, Email: utkarsh@gmail.com
+[2025-08-29 11:08:03 UTC] [INFO] Feedback deleted successfully - ID: 1003
+[2025-08-29 11:09:10 UTC] [INFO] Feedback deleted successfully - ID: 1004
+[2025-08-29 11:10:24 UTC] [INFO] Feedback updated successfully - ID: 1, Email: messi@gmail.com
+[2025-08-29 11:40:18 UTC] [INFO] Feedback updated successfully - ID: 1013, Email: utkarsh@gmail.com
+[2025-08-29 11:49:27 UTC] [INFO] Feedback submitted successfully - Email: niti@gmail.com, Category: Bug
+[2025-08-29 11:49:27 UTC] [INFO] Feedback submitted - Name: Niti, Email: niti@gmail.com, Category: Bug

@@ -13,17 +13,29 @@ namespace FeedbackFormWebApp.Services
 {
     public class FeedbackRepository : IFeedbackRepository
     {
+        private readonly ICacheService _cacheService;
+
+        public FeedbackRepository()
+        {
+            _cacheService = new MemoryCacheService();
+        }
+
+        public FeedbackRepository(ICacheService cacheService)
+        {
+            _cacheService = cacheService;
+        }
+
         public void Add(Feedback entry)
         {
-            using (var db = new FeedbackDbContext())   
+            using (var db = new FeedbackDbContext())
             {
-                db.Feedbacks.Add(entry);   
+                db.Feedbacks.Add(entry);
                 db.SaveChanges();
             }
-            // 5. INVALIDATE THE CACHE ensures users will see the new entry
+
             _cacheService.RemoveByPrefix("Feedback_Page");
         }
-        
+
         public List<Feedback> GetAllOrdered()
         {
             using (var db = new FeedbackDbContext())
@@ -33,30 +45,63 @@ namespace FeedbackFormWebApp.Services
                          .ToList();
             }
         }
-        //hold the cache service instance
-        private readonly ICacheService _cacheService;
-        
-        public FeedbackRepository()
+
+        // NEW: Get single feedback by ID
+        public Feedback GetById(int id)
         {
-            // This is the ONLY line you would change to upgrade to Redis.
-            _cacheService = new MemoryCacheService();
+            using (var db = new FeedbackDbContext())
+            {
+                return db.Feedbacks.FirstOrDefault(f => f.Id == id);
+            }
         }
-        // This constructor is useful for testing, allowing a mock cache to be injected.
-        public FeedbackRepository(ICacheService cacheService)
+
+        // NEW: Update feedback
+        public void Update(Feedback feedback)
         {
-            _cacheService = cacheService;
+            using (var db = new FeedbackDbContext())
+            {
+                var existing = db.Feedbacks.Find(feedback.Id);
+                if (existing != null)
+                {
+                    existing.Name = feedback.Name;
+                    existing.Email = feedback.Email;
+                    existing.Category = feedback.Category;
+                    existing.Message = feedback.Message;
+                    // Don't update SubmittedAt - keep original timestamp
+
+                    db.SaveChanges();
+                }
+            }
+
+            _cacheService.RemoveByPrefix("Feedback_Page");
         }
+
+        // NEW: Delete feedback
+        public void Delete(int id)
+        {
+            using (var db = new FeedbackDbContext())
+            {
+                var feedback = db.Feedbacks.Find(id);
+                if (feedback != null)
+                {
+                    db.Feedbacks.Remove(feedback);
+                    db.SaveChanges();
+                }
+            }
+
+            _cacheService.RemoveByPrefix("Feedback_Page");
+        }
+
         public PagedResult<Feedback> GetPagedFeedback(int pageNumber, int pageSize, string sortField = "SubmittedAt", string sortDirection = "DESC")
         {
             string cacheKey = $"Feedback_Page{pageNumber}_Size{pageSize}_Sort{sortField}{sortDirection}";
-            //CHECK 
+
             var cachedResult = _cacheService.Get<PagedResult<Feedback>>(cacheKey);
             if (cachedResult != null)
             {
-                // Cache Hit! Return the data from memory immediately.
                 return cachedResult;
             }
-            // Cache Miss
+
             using (var db = new FeedbackDbContext())
             {
                 var query = db.Feedbacks.AsQueryable();
@@ -79,15 +124,13 @@ namespace FeedbackFormWebApp.Services
                     SortField = sortField,
                     SortDirection = sortDirection
                 };
-                
+
                 _cacheService.Set(cacheKey, pagedResult, TimeSpan.FromMinutes(5));
 
                 return pagedResult;
             }
         }
 
-
-        // Dynamic sorting using Expression Trees
         private IQueryable<Feedback> ApplySorting(IQueryable<Feedback> query, string sortField, string sortDirection)
         {
             if (string.IsNullOrEmpty(sortField))
@@ -137,6 +180,3 @@ namespace FeedbackFormWebApp.Services
         public bool HasNextPage => CurrentPage < TotalPages;
     }
 }
-
-
-
