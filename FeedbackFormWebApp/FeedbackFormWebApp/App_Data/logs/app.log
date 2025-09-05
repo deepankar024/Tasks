@@ -237,3 +237,145 @@
 [2025-08-29 11:40:18 UTC] [INFO] Feedback updated successfully - ID: 1013, Email: utkarsh@gmail.com
 [2025-08-29 11:49:27 UTC] [INFO] Feedback submitted successfully - Email: niti@gmail.com, Category: Bug
 [2025-08-29 11:49:27 UTC] [INFO] Feedback submitted - Name: Niti, Email: niti@gmail.com, Category: Bug
+[2025-09-03 05:56:27 UTC] [INFO] Feedback submitted successfully - Email: Deepankar@bhavnacorp.com, Category: Bug
+[2025-09-03 05:56:27 UTC] [INFO] Feedback submitted - Name: Deepankar, Email: Deepankar@bhavnacorp.com, Category: Bug
+[2025-09-03 05:57:10 UTC] [INFO] Feedback submitted successfully - Email: r@gmail.com, Category: Complaint
+[2025-09-03 05:57:10 UTC] [INFO] Feedback submitted - Name: Ronaldo, Email: r@gmail.com, Category: Complaint
+[2025-09-03 07:37:07 UTC] [INFO] New user registered: Deepankar@bhavnacorp.com (User)
+[2025-09-03 07:37:07 UTC] [ERROR] Error during user registration :: Exception: Thread was being aborted. :: Stack Trace:    at System.Threading.Thread.AbortInternal()
+   at System.Threading.Thread.Abort(Object stateInfo)
+   at System.Web.HttpResponse.AbortCurrentThread()
+   at System.Web.HttpResponse.Redirect(String url, Boolean endResponse, Boolean permanent)
+   at FeedbackFormWebApp.Register.btnRegister_Click(Object sender, EventArgs e) in D:\Programming\Webform\FeedbackFormWebApp\FeedbackFormWebApp\Register.aspx.cs:line 65
+[2025-09-03 07:37:44 UTC] [INFO] Feedback submitted successfully - Email: Deepankar@bhavnacorp.com, Category: Suggestion
+[2025-09-03 07:37:44 UTC] [INFO] Feedback submitted - Name: Deepankar, Email: Deepankar@bhavnacorp.com, Category: Suggestion
+[2025-09-03 07:37:59 UTC] [INFO] Feedback updated successfully - ID: 1, Email: Deepankar@bhavnacorp.com
+[2025-09-03 07:38:19 UTC] [INFO] Feedback updated successfully - ID: 1, Email: Deepankar@bhavnacorp.com
+[2025-09-03 07:39:09 UTC] [INFO] Feedback submitted successfully - Email: Deepankar@bhavnacorp.com, Category: Bug
+[2025-09-03 07:39:09 UTC] [INFO] Feedback submitted - Name: Deepankar, Email: Deepankar@bhavnacorp.com, Category: Bug
+[2025-09-03 07:42:17 UTC] [INFO] New user registered: admin@example.com (Admin)
+[2025-09-03 07:42:17 UTC] [ERROR] Error during user registration :: Exception: Thread was being aborted. :: Stack Trace:    at System.Threading.Thread.AbortInternal()
+   at System.Threading.Thread.Abort(Object stateInfo)
+   at System.Web.HttpResponse.AbortCurrentThread()
+   at System.Web.HttpResponse.Redirect(String url, Boolean endResponse, Boolean permanent)
+   at FeedbackFormWebApp.Register.btnRegister_Click(Object sender, EventArgs e) in D:\Programming\Webform\FeedbackFormWebApp\FeedbackFormWebApp\Register.aspx.cs:line 61
+[2025-09-03 07:42:57 UTC] [INFO] Feedback updated successfully - ID: 2, Email: Deepankar@bhavnacorp.com
+[2025-09-03 07:44:25 UTC] [INFO] Feedback submitted successfully - Email: admin@example.com, Category: Complaint
+[2025-09-03 07:44:25 UTC] [INFO] Feedback submitted - Name: Admin, Email: admin@example.com, Category: Complaint
+[2025-09-03 07:44:58 UTC] [INFO] Feedback updated successfully - ID: 3, Email: admin@example.com
+[2025-09-03 07:47:21 UTC] [INFO] User logged in successfully: admin@example.com (Admin)
+[2025-09-03 07:47:22 UTC] [ERROR] Error during login :: Exception: Thread was being aborted. :: Stack Trace:    at System.Threading.Thread.AbortInternal()
+   at System.Threading.Thread.Abort(Object stateInfo)
+   at System.Web.HttpResponse.AbortCurrentThread()
+   at System.Web.HttpResponse.Redirect(String url, Boolean endResponse, Boolean permanent)
+   at FeedbackFormWebApp.Login.btnLogin_Click(Object sender, EventArgs e) in D:\Programming\Webform\FeedbackFormWebApp\FeedbackFormWebApp\Login.aspx.cs:line 44
+[2025-09-03 07:47:26 UTC] [INFO] User logged out: admin@example.com
+[2025-09-03 07:48:01 UTC] [INFO] User logged in successfully: admin@example.com (Admin)
+[2025-09-03 07:48:01 UTC] [ERROR] Error during login :: Exception: Thread was being aborted. :: Stack Trace:    at System.Threading.Thread.AbortInternal()
+   at System.Threading.Thread.Abort(Object stateInfo)
+   at System.Web.HttpResponse.AbortCurrentThread()
+   at System.Web.HttpResponse.Redirect(String url, Boolean endResponse, Boolean permanent)
+   at FeedbackFormWebApp.Login.btnLogin_Click(Object sender, EventArgs e) in D:\Programming\Webform\FeedbackFormWebApp\FeedbackFormWebApp\Login.aspx.cs:line 44
+[2025-09-03 07:48:04 UTC] [INFO] User logged out: admin@example.com
+[2025-09-03 07:48:08 UTC] [INFO] User logged in successfully: Deepankar@bhavnacorp.com (User)
+[2025-09-03 07:48:08 UTC] [ERROR] Error during login :: Exception: Thread was being aborted. :: Stack Trace:    at System.Threading.Thread.AbortInternal()
+   at System.Threading.Thread.Abort(Object stateInfo)
+   at System.Web.HttpResponse.AbortCurrentThread()
+   at System.Web.HttpResponse.Redirect(String url, Boolean endResponse, Boolean permanent)
+   at FeedbackFormWebApp.Login.btnLogin_Click(Object sender, EventArgs e) in D:\Programming\Webform\FeedbackFormWebApp\FeedbackFormWebApp\Login.aspx.cs:line 48
+[2025-09-03 07:48:36 UTC] [INFO] User logged out: Deepankar@bhavnacorp.com
+[2025-09-03 07:48:43 UTC] [INFO] User logged in successfully: Deepankar@bhavnacorp.com (User)
+[2025-09-03 07:48:43 UTC] [ERROR] Error during login :: Exception: Thread was being aborted. :: Stack Trace:    at System.Threading.Thread.AbortInternal()
+   at System.Threading.Thread.Abort(Object stateInfo)
+   at System.Web.HttpResponse.AbortCurrentThread()
+   at System.Web.HttpResponse.Redirect(String url, Boolean endResponse, Boolean permanent)
+   at FeedbackFormWebApp.Login.btnLogin_Click(Object sender, EventArgs e) in D:\Programming\Webform\FeedbackFormWebApp\FeedbackFormWebApp\Login.aspx.cs:line 48
+[2025-09-03 07:48:57 UTC] [INFO] Feedback updated successfully - ID: 2, Email: Deepankar@bhavnacorp.com
+[2025-09-03 07:49:55 UTC] [INFO] Feedback submitted successfully - Email: Deepankar@bhavnacorp.com, Category: Suggestion
+[2025-09-03 07:49:55 UTC] [INFO] Feedback submitted - Name: Deepankar, Email: Deepankar@bhavnacorp.com, Category: Suggestion
+[2025-09-03 07:52:16 UTC] [INFO] Feedback updated successfully - ID: 1, Email: Deepankar@bhavnacorp.com
+[2025-09-03 07:53:59 UTC] [INFO] User logged out: Deepankar@bhavnacorp.com
+[2025-09-03 07:54:03 UTC] [INFO] User logged in successfully: admin@example.com (Admin)
+[2025-09-03 07:54:03 UTC] [ERROR] Error during login :: Exception: Thread was being aborted. :: Stack Trace:    at System.Threading.Thread.AbortInternal()
+   at System.Threading.Thread.Abort(Object stateInfo)
+   at System.Web.HttpResponse.AbortCurrentThread()
+   at System.Web.HttpResponse.Redirect(String url, Boolean endResponse, Boolean permanent)
+   at FeedbackFormWebApp.Login.btnLogin_Click(Object sender, EventArgs e) in D:\Programming\Webform\FeedbackFormWebApp\FeedbackFormWebApp\Login.aspx.cs:line 44
+[2025-09-03 07:54:58 UTC] [INFO] Feedback submitted successfully - Email: admin@example.com, Category: Other
+[2025-09-03 07:54:58 UTC] [INFO] Feedback submitted - Name: Admin, Email: admin@example.com, Category: Other
+[2025-09-03 07:55:57 UTC] [INFO] Feedback submitted successfully - Email: admin@example.com, Category: Bug
+[2025-09-03 07:55:57 UTC] [INFO] Feedback submitted - Name: Admin, Email: admin@example.com, Category: Bug
+[2025-09-03 07:56:11 UTC] [INFO] Feedback updated successfully - ID: 1, Email: Deepankar@bhavnacorp.com
+[2025-09-03 07:57:06 UTC] [INFO] User logged out: admin@example.com
+[2025-09-03 07:57:10 UTC] [INFO] User logged in successfully: Deepankar@bhavnacorp.com (User)
+[2025-09-03 07:57:10 UTC] [ERROR] Error during login :: Exception: Thread was being aborted. :: Stack Trace:    at System.Threading.Thread.AbortInternal()
+   at System.Threading.Thread.Abort(Object stateInfo)
+   at System.Web.HttpResponse.AbortCurrentThread()
+   at System.Web.HttpResponse.Redirect(String url, Boolean endResponse, Boolean permanent)
+   at FeedbackFormWebApp.Login.btnLogin_Click(Object sender, EventArgs e) in D:\Programming\Webform\FeedbackFormWebApp\FeedbackFormWebApp\Login.aspx.cs:line 48
+[2025-09-03 07:57:33 UTC] [INFO] Feedback updated successfully - ID: 1, Email: Deepankar@bhavnacorp.com
+[2025-09-03 08:51:30 UTC] [INFO] User logged in successfully: Deepankar@bhavnacorp.com (User)
+[2025-09-03 08:51:31 UTC] [ERROR] Error during login :: Exception: Thread was being aborted. :: Stack Trace:    at System.Threading.Thread.AbortInternal()
+   at System.Threading.Thread.Abort(Object stateInfo)
+   at System.Web.HttpResponse.AbortCurrentThread()
+   at System.Web.HttpResponse.Redirect(String url, Boolean endResponse, Boolean permanent)
+   at FeedbackFormWebApp.Login.btnLogin_Click(Object sender, EventArgs e) in D:\Programming\Webform\FeedbackFormWebApp\FeedbackFormWebApp\Login.aspx.cs:line 48
+[2025-09-03 08:51:40 UTC] [INFO] User logged out: Deepankar@bhavnacorp.com
+[2025-09-03 08:51:43 UTC] [INFO] User logged in successfully: admin@example.com (Admin)
+[2025-09-03 08:51:43 UTC] [ERROR] Error during login :: Exception: Thread was being aborted. :: Stack Trace:    at System.Threading.Thread.AbortInternal()
+   at System.Threading.Thread.Abort(Object stateInfo)
+   at System.Web.HttpResponse.AbortCurrentThread()
+   at System.Web.HttpResponse.Redirect(String url, Boolean endResponse, Boolean permanent)
+   at FeedbackFormWebApp.Login.btnLogin_Click(Object sender, EventArgs e) in D:\Programming\Webform\FeedbackFormWebApp\FeedbackFormWebApp\Login.aspx.cs:line 44
+[2025-09-03 08:51:55 UTC] [INFO] User logged out: admin@example.com
+[2025-09-03 10:24:43 UTC] [INFO] User logged in successfully: Deepankar@bhavnacorp.com (User)
+[2025-09-03 10:24:43 UTC] [ERROR] Error during login :: Exception: Thread was being aborted. :: Stack Trace:    at System.Threading.Thread.AbortInternal()
+   at System.Threading.Thread.Abort(Object stateInfo)
+   at System.Web.HttpResponse.AbortCurrentThread()
+   at System.Web.HttpResponse.Redirect(String url, Boolean endResponse, Boolean permanent)
+   at FeedbackFormWebApp.Login.btnLogin_Click(Object sender, EventArgs e) in D:\Programming\Webform\FeedbackFormWebApp\FeedbackFormWebApp\Login.aspx.cs:line 48
+[2025-09-03 10:24:53 UTC] [INFO] User logged out: Deepankar@bhavnacorp.com
+[2025-09-03 10:25:22 UTC] [INFO] New user registered: ronaldo@gmail.com (User)
+[2025-09-03 10:25:22 UTC] [ERROR] Error during user registration :: Exception: Thread was being aborted. :: Stack Trace:    at System.Threading.Thread.AbortInternal()
+   at System.Threading.Thread.Abort(Object stateInfo)
+   at System.Web.HttpResponse.AbortCurrentThread()
+   at System.Web.HttpResponse.Redirect(String url, Boolean endResponse, Boolean permanent)
+   at FeedbackFormWebApp.Register.btnRegister_Click(Object sender, EventArgs e) in D:\Programming\Webform\FeedbackFormWebApp\FeedbackFormWebApp\Register.aspx.cs:line 65
+[2025-09-03 10:25:34 UTC] [INFO] User logged out: ronaldo@gmail.com
+[2025-09-03 10:25:38 UTC] [INFO] User logged in successfully: admin@example.com (Admin)
+[2025-09-03 10:25:39 UTC] [ERROR] Error during login :: Exception: Thread was being aborted. :: Stack Trace:    at System.Threading.Thread.AbortInternal()
+   at System.Threading.Thread.Abort(Object stateInfo)
+   at System.Web.HttpResponse.AbortCurrentThread()
+   at System.Web.HttpResponse.Redirect(String url, Boolean endResponse, Boolean permanent)
+   at FeedbackFormWebApp.Login.btnLogin_Click(Object sender, EventArgs e) in D:\Programming\Webform\FeedbackFormWebApp\FeedbackFormWebApp\Login.aspx.cs:line 44
+[2025-09-03 10:25:51 UTC] [INFO] User logged out: admin@example.com
+[2025-09-03 10:25:57 UTC] [INFO] User logged in successfully: Deepankar@bhavnacorp.com (User)
+[2025-09-03 10:25:57 UTC] [ERROR] Error during login :: Exception: Thread was being aborted. :: Stack Trace:    at System.Threading.Thread.AbortInternal()
+   at System.Threading.Thread.Abort(Object stateInfo)
+   at System.Web.HttpResponse.AbortCurrentThread()
+   at System.Web.HttpResponse.Redirect(String url, Boolean endResponse, Boolean permanent)
+   at FeedbackFormWebApp.Login.btnLogin_Click(Object sender, EventArgs e) in D:\Programming\Webform\FeedbackFormWebApp\FeedbackFormWebApp\Login.aspx.cs:line 48
+[2025-09-03 10:45:50 UTC] [INFO] Feedback submitted successfully - Email: Deepankar@bhavnacorp.com, Category: Complaint
+[2025-09-03 10:45:50 UTC] [INFO] Feedback submitted - Name: Deepankar, Email: Deepankar@bhavnacorp.com, Category: Complaint
+[2025-09-03 10:46:11 UTC] [INFO] Feedback updated successfully - ID: 7, Email: Deepankar@bhavnacorp.com
+[2025-09-03 10:47:37 UTC] [INFO] Feedback updated successfully - ID: 7, Email: Deepankar@bhavnacorp.com
+[2025-09-03 11:05:45 UTC] [INFO] User logged in successfully: Deepankar@bhavnacorp.com (User)
+[2025-09-03 11:05:45 UTC] [ERROR] Error during login :: Exception: Thread was being aborted. :: Stack Trace:    at System.Threading.Thread.AbortInternal()
+   at System.Threading.Thread.Abort(Object stateInfo)
+   at System.Web.HttpResponse.AbortCurrentThread()
+   at System.Web.HttpResponse.Redirect(String url, Boolean endResponse, Boolean permanent)
+   at FeedbackFormWebApp.Login.btnLogin_Click(Object sender, EventArgs e) in D:\Programming\Webform\FeedbackFormWebApp\FeedbackFormWebApp\Login.aspx.cs:line 48
+[2025-09-03 11:05:57 UTC] [INFO] Feedback updated successfully - ID: 7, Email: Deepankar@bhavnacorp.com
+[2025-09-03 11:20:55 UTC] [INFO] User logged in successfully: Deepankar@bhavnacorp.com (User)
+[2025-09-03 11:20:55 UTC] [ERROR] Error during login :: Exception: Thread was being aborted. :: Stack Trace:    at System.Threading.Thread.AbortInternal()
+   at System.Threading.Thread.Abort(Object stateInfo)
+   at System.Web.HttpResponse.AbortCurrentThread()
+   at System.Web.HttpResponse.Redirect(String url, Boolean endResponse, Boolean permanent)
+   at FeedbackFormWebApp.Login.btnLogin_Click(Object sender, EventArgs e) in D:\Programming\Webform\FeedbackFormWebApp\FeedbackFormWebApp\Login.aspx.cs:line 48
+[2025-09-03 11:21:13 UTC] [INFO] Feedback updated successfully - ID: 7, Email: Deepankar@bhavnacorp.com
+[2025-09-04 06:02:47 UTC] [INFO] User logged in successfully: Deepankar@bhavnacorp.com (User)
+[2025-09-04 06:02:47 UTC] [ERROR] Error during login :: Exception: Thread was being aborted. :: Stack Trace:    at System.Threading.Thread.AbortInternal()
+   at System.Threading.Thread.Abort(Object stateInfo)
+   at System.Web.HttpResponse.AbortCurrentThread()
+   at System.Web.HttpResponse.Redirect(String url, Boolean endResponse, Boolean permanent)
+   at FeedbackFormWebApp.Login.btnLogin_Click(Object sender, EventArgs e) in D:\Programming\Webform\FeedbackFormWebApp\FeedbackFormWebApp\Login.aspx.cs:line 48

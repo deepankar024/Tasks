@@ -13,11 +13,39 @@ namespace FeedbackFormWebApp.Models
         }
 
         public DbSet<Feedback> Feedbacks { get; set; }   //representscollection of all Feedback records  db.Feedbacks.ToList()
-
+        public DbSet<User> Users { get; set; }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)  //Fluent API use kiya basically annotation hai OnModelCreating() for complex configurations
         {
             // Remove pluralizing table name convention
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();   // feedbackss eg
+
+            // Configure User entity
+            modelBuilder.Entity<User>()
+                .HasKey(u => u.Id);
+
+            modelBuilder.Entity<User>()
+                .Property(u => u.FullName)
+                .IsRequired()
+                .HasMaxLength(100);
+
+            modelBuilder.Entity<User>()
+                .Property(u => u.Email)
+                .IsRequired()
+                .HasMaxLength(150);
+
+            modelBuilder.Entity<User>()
+                .HasIndex(u => u.Email)
+                .IsUnique();
+
+            modelBuilder.Entity<User>()
+                .Property(u => u.PasswordHash)
+                .IsRequired()
+                .HasMaxLength(255);
+
+            modelBuilder.Entity<User>()
+                .Property(u => u.Role)
+                .IsRequired()
+                .HasMaxLength(50);
 
             // Configure Feedback entity
             modelBuilder.Entity<Feedback>()
@@ -46,6 +74,16 @@ namespace FeedbackFormWebApp.Models
             modelBuilder.Entity<Feedback>()
                 .Property(f => f.SubmittedAt)
                 .IsRequired();
+
+            modelBuilder.Entity<Feedback>()
+                .Property(f => f.UserId)
+                .IsRequired();
+
+            // Configure User-Feedback relationship
+            modelBuilder.Entity<Feedback>()
+                .HasRequired(f => f.User)
+                .WithMany()
+                .HasForeignKey(f => f.UserId);
 
             base.OnModelCreating(modelBuilder);
         }

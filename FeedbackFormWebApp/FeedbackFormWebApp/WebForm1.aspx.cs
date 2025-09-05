@@ -1,5 +1,6 @@
 ﻿using System;
 using FeedbackFormWebApp.Controls;
+using FeedbackFormWebApp.Utils;
 
 namespace FeedbackFormWebApp
 {
@@ -7,16 +8,22 @@ namespace FeedbackFormWebApp
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            // Event is already wired up through OnFeedbackSubmitted in markup
+            // Redirect to login if not authenticated
+            AuthHelper.RedirectIfNotLoggedIn();
+
+            // Display user info
+            var currentUser = AuthHelper.GetCurrentUser();
+            if (currentUser != null && !IsPostBack)
+            {
+                // You can display welcome message or user info here
+                Page.Title = $"Feedback Form - Welcome {currentUser.FullName}";
+            }
         }
 
         protected void FeedbackForm1_FeedbackSubmitted(object sender, FeedbackEventArgs e)
         {
             Session["LastFeedback"] = e;
-
             Utils.AppLogger.Info($"Feedback submitted - Name: {e.Name}, Email: {e.Email}, Category: {e.Category}");
         }
     }
 }
-
-//'e' parameter contains the data submitted from the form

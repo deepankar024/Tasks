@@ -404,6 +404,14 @@ namespace FeedbackFormWebApp.Controls
             if (!Page.IsValid)
                 return;
 
+            // Check if user is logged in
+            var currentUser = AuthHelper.GetCurrentUser();
+            if (currentUser == null)
+            {
+                AuthHelper.RedirectToLogin();
+                return;
+            }
+
             // Additional server-side CAPTCHA validation
             if (_cvCaptcha != null)
             {
@@ -436,7 +444,8 @@ namespace FeedbackFormWebApp.Controls
                     Email = feedbackArgs.Email,
                     Category = feedbackArgs.Category,
                     Message = feedbackArgs.Message,
-                    SubmittedAt = feedbackArgs.SubmittedAt
+                    SubmittedAt = feedbackArgs.SubmittedAt,
+                    UserId = currentUser.Id // NEW: Associate with logged-in user
                 };
 
                 

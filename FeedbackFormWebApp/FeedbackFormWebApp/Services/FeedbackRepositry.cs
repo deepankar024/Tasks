@@ -41,6 +41,20 @@ namespace FeedbackFormWebApp.Services
             using (var db = new FeedbackDbContext())
             {
                 return db.Feedbacks
+                         .Include(f => f.User)
+                         .OrderByDescending(f => f.SubmittedAt)
+                         .ToList();
+            }
+        }
+
+        // NEW: Get feedbacks by user ID
+        public List<Feedback> GetByUserId(int userId)
+        {
+            using (var db = new FeedbackDbContext())
+            {
+                return db.Feedbacks
+                         .Where(f => f.UserId == userId)
+                         .Include(f => f.User)
                          .OrderByDescending(f => f.SubmittedAt)
                          .ToList();
             }
@@ -74,6 +88,7 @@ namespace FeedbackFormWebApp.Services
             }
 
             _cacheService.RemoveByPrefix("Feedback_Page");
+            _cacheService.RemoveByPrefix($"Feedback_User{feedback.UserId}_Page");
         }
 
         // NEW: Delete feedback
@@ -92,6 +107,15 @@ namespace FeedbackFormWebApp.Services
             _cacheService.RemoveByPrefix("Feedback_Page");
         }
 
+        // NEW: Check if user can modify feedback (owns it)
+        public bool CanUserModify(int feedbackId, int userId)
+        {
+            using (var db = new FeedbackDbContext())
+            {
+                return db.Feedbacks.Any(f => f.Id == feedbackId && f.UserId == userId);
+            }
+        }
+
         public PagedResult<Feedback> GetPagedFeedback(int pageNumber, int pageSize, string sortField = "SubmittedAt", string sortDirection = "DESC")
         {
             string cacheKey = $"Feedback_Page{pageNumber}_Size{pageSize}_Sort{sortField}{sortDirection}";
@@ -105,6 +129,50 @@ namespace FeedbackFormWebApp.Services
             using (var db = new FeedbackDbContext())
             {
                 var query = db.Feedbacks.AsQueryable();
+                query = ApplySorting(query, sortField, sortDirection);
+
+                var totalRecords = query.Count();
+
+                var items = query
+                    .Skip((pageNumber - 1) * pageSize)
+                    .Take(pageSize)
+                    .ToList();
+
+                var pagedResult = new PagedResult<Feedback>
+                {
+                    Items = items,
+                    CurrentPage = pageNumber,
+                    TotalRecords = totalRecords,
+                    PageSize = pageSize,
+                    TotalPages = (int)Math.Ceiling((double)totalRecords / pageSize),
+                    SortField = sortField,
+                    SortDirection = sortDirection
+                };
+
+                _cacheService.Set(cacheKey, pagedResult, TimeSpan.FromMinutes(5));
+
+                return pagedResult;
+            }
+        }
+
+        // NEW: Get paged feedback for specific user
+        public PagedResult<Feedback> GetPagedFeedbackByUserId(int userId, int pageNumber, int pageSize, string sortField = "SubmittedAt", string sortDirection = "DESC")
+        {
+            string cacheKey = $"Feedback_User{userId}_Page{pageNumber}_Size{pageSize}_Sort{sortField}{sortDirection}";
+
+            var cachedResult = _cacheService.Get<PagedResult<Feedback>>(cacheKey);
+            if (cachedResult != null)
+            {
+                return cachedResult;
+            }
+
+            using (var db = new FeedbackDbContext())
+            {
+                var query = db.Feedbacks
+                              .Where(f => f.UserId == userId)
+                              .Include(f => f.User)
+                              .AsQueryable();
+
                 query = ApplySorting(query, sortField, sortDirection);
 
                 var totalRecords = query.Count();
@@ -164,7 +232,17 @@ namespace FeedbackFormWebApp.Services
                 return db.Feedbacks.Count();
             }
         }
+        // NEW: Get count by user ID
+        public int GetTotalCountByUserId(int userId)
+        {
+            using (var db = new FeedbackDbContext())
+            {
+                return db.Feedbacks.Count(f => f.UserId == userId);
+            }
+        }
     }
+
+
 
     public class PagedResult<T>
     {

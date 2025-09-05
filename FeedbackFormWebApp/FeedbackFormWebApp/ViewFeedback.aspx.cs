@@ -17,6 +17,21 @@ namespace FeedbackFormWebApp
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            // Check authentication
+            AuthHelper.RedirectIfNotLoggedIn();
+
+            var currentUser = AuthHelper.GetCurrentUser();
+
+            // Update page title based on role
+            if (AuthHelper.IsAdmin())
+            {
+                Page.Title = "All Feedback - Admin View";
+            }
+            else
+            {
+                Page.Title = "My Feedback";
+            }
+
             string eventArg = Request["__EVENTARGUMENT"];
 
             if (!string.IsNullOrEmpty(eventArg) && eventArg.StartsWith("Page$"))
@@ -37,11 +52,45 @@ namespace FeedbackFormWebApp
         {
             try
             {
+                //var currentUser = AuthHelper.GetCurrentUser();
+                //if (currentUser == null) return;
+
+                //int currentPage = GridView1.PageIndex + 1;
+                //string sortField = ViewState["SortField"]?.ToString() ?? "SubmittedAt";
+                //string sortDirection = ViewState["SortDirection"]?.ToString() ?? "DESC";
+
+                //var pagedResult = _repo.GetPagedFeedback(currentPage, DefaultPageSize, sortField, sortDirection);
+
+                var currentUser = AuthHelper.GetCurrentUser();
+                if (currentUser == null) return;
+
                 int currentPage = GridView1.PageIndex + 1;
                 string sortField = ViewState["SortField"]?.ToString() ?? "SubmittedAt";
                 string sortDirection = ViewState["SortDirection"]?.ToString() ?? "DESC";
 
-                var pagedResult = _repo.GetPagedFeedback(currentPage, DefaultPageSize, sortField, sortDirection);
+                PagedResult<Feedback> pagedResult;
+
+                // Admin sees all feedback, User sees only their own
+                if (AuthHelper.IsAdmin())
+                {
+                    pagedResult = _repo.GetPagedFeedback(currentPage, DefaultPageSize, sortField, sortDirection);
+                    litError.Text = ""; // Clear any previous messages
+
+                    // Update header for admin
+                    var headerDiv = this.FindControl("headerDiv") as Literal;
+                    if (headerDiv != null)
+                        headerDiv.Text = "<div class='ff-header'>All Feedback (Admin View)</div>";
+                }
+                else
+                {
+                    pagedResult = _repo.GetPagedFeedbackByUserId(currentUser.Id, currentPage, DefaultPageSize, sortField, sortDirection);
+
+                    // Update header for user
+                    var headerDiv = this.FindControl("headerDiv") as Literal;
+                    if (headerDiv != null)
+                        headerDiv.Text = "<div class='ff-header'>My Feedback</div>";
+                }
+
                 // 🚨 Optional: prevent EditIndex out of range
                 if (GridView1.EditIndex >= pagedResult.Items.Count)
                 {
@@ -99,6 +148,17 @@ namespace FeedbackFormWebApp
         // NEW: Handle row editing
         protected void GridView1_RowEditing(object sender, GridViewEditEventArgs e)
         {
+            var currentUser = AuthHelper.GetCurrentUser();
+            if (currentUser == null) return;
+
+            int feedbackId = Convert.ToInt32(GridView1.DataKeys[e.NewEditIndex].Value);
+
+            // Check if user has permission to edit (admin can edit all, user can edit only their own)
+            if (!AuthHelper.IsAdmin() && !_repo.CanUserModify(feedbackId, currentUser.Id))
+            {
+                ShowError("You can only edit your own feedback.");
+                return;
+            }
             GridView1.PageIndex = Convert.ToInt32(ViewState["CurrentPage"]) - 1;
             GridView1.EditIndex = e.NewEditIndex;
             BindGrid();
@@ -109,12 +169,20 @@ namespace FeedbackFormWebApp
         {
             try
             {
+                var currentUser = AuthHelper.GetCurrentUser();
+                if (currentUser == null) return;
                 // Validate the edit validation group
                 Page.Validate("EditValidation");
                 if (!Page.IsValid)
                     return;
 
                 int feedbackId = Convert.ToInt32(GridView1.DataKeys[e.RowIndex].Value);
+                // Check if user has permission to update
+                if (!AuthHelper.IsAdmin() && !_repo.CanUserModify(feedbackId, currentUser.Id))
+                {
+                    ShowError("You can only edit your own feedback.");
+                    return;
+                }
                 GridViewRow row = GridView1.Rows[e.RowIndex];
 
                 // Get the edited values
@@ -165,7 +233,17 @@ namespace FeedbackFormWebApp
         {
             try
             {
+                var currentUser = AuthHelper.GetCurrentUser();
+                if (currentUser == null) return;
+
                 int feedbackId = Convert.ToInt32(GridView1.DataKeys[e.RowIndex].Value);
+
+                // Check if user has permission to delete
+                if (!AuthHelper.IsAdmin() && !_repo.CanUserModify(feedbackId, currentUser.Id))
+                {
+                    ShowError("You can only delete your own feedback.");
+                    return;
+                }
 
                 _repo.Delete(feedbackId);
 
@@ -204,6 +282,25 @@ namespace FeedbackFormWebApp
                 if (ddlCategory != null && feedback != null)
                 {
                     ddlCategory.SelectedValue = feedback.Category;
+                }
+            }
+            // For regular rows, check if user can edit/delete
+            if (e.Row.RowType == DataControlRowType.DataRow && GridView1.EditIndex != e.Row.RowIndex)
+            {
+                var currentUser = AuthHelper.GetCurrentUser();
+                if (currentUser != null && !AuthHelper.IsAdmin())
+                {
+                    var feedback = (Feedback)e.Row.DataItem;
+
+                    // If user doesn't own this feedback, hide edit/delete buttons
+                    if (feedback.UserId != currentUser.Id)
+                    {
+                        var lnkEdit = (LinkButton)e.Row.FindControl("lnkEdit");
+                        var lnkDelete = (LinkButton)e.Row.FindControl("lnkDelete");
+
+                        if (lnkEdit != null) lnkEdit.Visible = false;
+                        if (lnkDelete != null) lnkDelete.Visible = false;
+                    }
                 }
             }
         }
@@ -264,7 +361,7 @@ namespace FeedbackFormWebApp
         private string GetPaginationInfo(PagedResult<Models.Feedback> result)
         {
             if (result.TotalRecords == 0)
-                return "No feedback entries found.";
+                return AuthHelper.IsAdmin() ? "No feedback entries found." : "You haven't submitted any feedback yet.";
 
             int startRecord = (result.CurrentPage - 1) * result.PageSize + 1;
             int endRecord = Math.Min(result.CurrentPage * result.PageSize, result.TotalRecords);

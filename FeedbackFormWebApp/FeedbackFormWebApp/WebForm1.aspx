@@ -10,6 +10,20 @@
 <body>
     <form id="form1" runat="server">
         <asp:ScriptManager ID="ScriptManager1" runat="server" />
+        
+        <!-- User Navigation Bar -->
+        <div style="background: #f8fafc; padding: 12px 24px; border-bottom: 1px solid #e6e9ef; margin-bottom: 20px;">
+            <div style="max-width: 700px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center;">
+                <span style="color: #374151; font-weight: 500;">
+                    Welcome, <%= FeedbackFormWebApp.Utils.AuthHelper.GetCurrentUser()?.FullName %>
+                </span>
+                <div>
+                    <a href="ViewFeedback.aspx" style="color: #2563eb; text-decoration: none; margin-right: 15px;">My Feedback</a>
+                    <a href="Logout.aspx" style="color: #dc2626; text-decoration: none;">Logout</a>
+                </div>
+            </div>
+        </div>
+
         <div style="padding: 18px;">
             <cc1:FeedbackFormControl ID="FeedbackForm1" runat="server"
                 ShowHeader="true"
@@ -29,9 +43,6 @@
                     </div>
                 </FooterTemplate>
             </cc1:FeedbackFormControl>
-            <div style="margin-top: 16px; text-align: right">
-                <a href="ViewFeedback.aspx" style="text-decoration: none;">View all feedback →</a>
-            </div>
         </div>
     </form>
 </body>

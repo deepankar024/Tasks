@@ -36,6 +36,15 @@ namespace FeedbackFormWebApp.Models
         [Display(Name = "Submitted On")]
         public DateTime SubmittedAt { get; set; }
 
+        // NEW: Foreign key to User
+        [Required]
+        [Display(Name = "User ID")]
+        public int UserId { get; set; }
+
+        // Navigation property
+        [ForeignKey("UserId")]
+        public virtual User User { get; set; }
+
         public Feedback()
         {
             var indiaTimeZone = TimeZoneInfo.FindSystemTimeZoneById("India Standard Time");

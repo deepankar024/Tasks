@@ -103,8 +103,28 @@
     <form id="form1" runat="server">
         <asp:ScriptManager ID="ScriptManager1" runat="server" EnablePartialRendering="true" />
 
+        <!-- Navigation Bar -->
+        <div style="background: #f8fafc; padding: 12px 24px; border-bottom: 1px solid #e6e9ef; margin-bottom: 20px;">
+            <div style="max-width: 1400px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center;">
+                <span style="color: #374151; font-weight: 500;">
+                    Welcome, <%= FeedbackFormWebApp.Utils.AuthHelper.GetCurrentUser()?.FullName %>
+                    <span style="color: #6b7280; font-size: 14px;">
+                        (<%= FeedbackFormWebApp.Utils.AuthHelper.IsAdmin() ? "Admin" : "User" %>)
+                    </span>
+                </span>
+                <div>
+                    <% if (FeedbackFormWebApp.Utils.AuthHelper.IsUser()) { %>
+                        <a href="WebForm1.aspx" style="color: #2563eb; text-decoration: none; margin-right: 15px;">Submit Feedback</a>
+                    <% } %>
+                    <a href="Logout.aspx" style="color: #dc2626; text-decoration: none;">Logout</a>
+                </div>
+            </div>
+        </div>
+
         <div class="ff-wrapper view-feedback">
-            <div class="ff-header">All Feedback</div>
+            <div class="ff-header">
+                <%= FeedbackFormWebApp.Utils.AuthHelper.IsAdmin() ? "All Feedback (Admin View)" : "My Feedback" %>
+            </div>
 
             <asp:Literal ID="litError" runat="server" />
 
